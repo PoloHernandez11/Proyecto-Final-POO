@@ -77,19 +77,3 @@ solamente los alquileres.
 
 - `docs/diagrama-casos-de-uso.svg`
 - `docs/diagrama-secuencia-registrar-alquiler.svg`
-
-## Notas para el grupo
-
-- **Contraseña de MySQL:** cada integrante pone la de su MySQL en
-  `src/dao/ConexionBD.java` (es el único lugar donde está).
-- **Primera vez en NetBeans:** si al abrir el proyecto las opciones Build y
-  Run aparecen en gris, cerrá NetBeans y volvé a abrirlo. Pasa la primera
-  vez porque NetBeans activa el soporte de Java después de abrir el
-  proyecto.
-- **Para ejecutar** alcanza con Run (F6). Clean and Build (Shift+F11) solo
-  hace falta para generar el `.jar` de `dist/` y usarlo fuera de NetBeans.
-- **Pantallas:** Clientes y Videojuegos están hechas con el diseñador
-  visual de NetBeans (archivos `.form`). Alquileres y el menú principal
-  están escritas en código, así que se modifican desde el `.java`.
-- **No se suben** `build/`, `dist/` ni `nbproject/private/`: se generan
-  solos en cada PC (ver `.gitignore`).
