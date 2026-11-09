@@ -77,3 +77,12 @@ solamente los alquileres.
 
 - `docs/diagrama-casos-de-uso.svg`
 - `docs/diagrama-secuencia-registrar-alquiler.svg`
+
+## Documentación (Javadoc)
+
+La documentación de todas las clases está en `docs/javadoc/`.
+Abrí `docs/javadoc/index.html` en el navegador.
+
+Para regenerarla desde NetBeans: clic derecho en el proyecto →
+**Generate Javadoc** (la deja en `dist/javadoc`; después copiala a
+`docs/javadoc`).
