@@ -1,0 +1,11 @@
+# Archivos que NetBeans genera al compilar (se regeneran solos)
+Tienda videojuegos/build/
+Tienda videojuegos/dist/
+
+# Configuración personal de NetBeans de cada PC
+Tienda videojuegos/nbproject/private/
+
+# Archivos del sistema
+Thumbs.db
+desktop.ini
+.DS_Store

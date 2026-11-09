@@ -1,0 +1,376 @@
+package views;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+
+/**
+ * Pantalla de gestión de clientes (alta, consulta, modificación y baja).
+ * <p>
+ * Solo muestra y lee datos: la lógica está en
+ * {@link controllers.ClienteController}.
+ */
+public class ClienteView extends javax.swing.JFrame {
+
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ClienteView.class.getName());
+
+    /**
+     * Crea la pantalla de clientes.
+     */
+    public ClienteView() {
+        initComponents();
+    }
+
+    /** @return nombre escrito por el usuario, sin espacios al costado */
+    public String getNombreCliente() {
+        return textFieldNombre.getText().trim();
+    }
+
+    /** @param nombre nombre a mostrar */
+    public void setNombreCliente(String nombre) {
+        textFieldNombre.setText(nombre);
+    }
+
+    /** @return apellido escrito por el usuario */
+    public String getApellidoCliente() {
+        return textFieldApellido.getText().trim();
+    }
+
+    /** @param apellido apellido a mostrar */
+    public void setApellidoCliente(String apellido) {
+        textFieldApellido.setText(apellido);
+    }
+
+    /** @return DNI escrito por el usuario */
+    public String getDniCliente() {
+        return textFieldDNI.getText().trim();
+    }
+
+    /** @param dni DNI a mostrar */
+    public void setDniCliente(String dni) {
+        textFieldDNI.setText(dni);
+    }
+
+    /** @return teléfono escrito por el usuario */
+    public String getTelefonoCliente() {
+        return textFieldTelefono.getText().trim();
+    }
+
+    /** @param telefono teléfono a mostrar */
+    public void setTelefonoCliente(String telefono) {
+        textFieldTelefono.setText(telefono);
+    }
+
+    /** @return email escrito por el usuario */
+    public String getEmailCliente() {
+        return textFieldEmail.getText().trim();
+    }
+
+    /** @param email email a mostrar */
+    public void setEmailCliente(String email) {
+        textFieldEmail.setText(email);
+    }
+
+    /**
+     * Borra los campos del formulario y la selección de la tabla.
+     */
+    public void limpiarCampos() {
+        textFieldNombre.setText("");
+        textFieldApellido.setText("");
+        textFieldDNI.setText("");
+        textFieldTelefono.setText("");
+        textFieldEmail.setText("");
+
+        jTableClientes.clearSelection();
+    }
+    
+    /**
+     * @return id del cliente seleccionado en la tabla, o -1 si no hay
+     *         ninguno seleccionado
+     */
+    public int getIdSeleccionado() {
+
+        int fila = jTableClientes.getSelectedRow();
+
+        if (fila == -1) {
+            return -1;
+        }
+
+        return Integer.parseInt(
+                jTableClientes.getValueAt(fila, 0).toString()
+        );
+    }
+    
+    /** @param listener acción del botón AGREGAR */
+    public void agregarListenerAgregar(ActionListener listener) {
+        buttonAgregar.addActionListener(listener);
+    }
+
+    /** @param listener acción del botón MODIFICAR */
+    public void agregarListenerModificar(ActionListener listener) {
+        buttonModificar.addActionListener(listener);
+    }
+
+    /** @param listener acción del botón ELIMINAR */
+    public void agregarListenerEliminar(ActionListener listener) {
+        buttonEliminar.addActionListener(listener);
+    }
+
+    /** @param listener acción del botón CANCELAR */
+    public void agregarListenerCancelar(ActionListener listener) {
+        buttonCancelar.addActionListener(listener);
+    }
+
+    /** @param listener acción al hacer clic en una fila de la tabla */
+    public void agregarListenerTabla(MouseAdapter listener) {
+        jTableClientes.addMouseListener(listener);
+    }
+
+    /** @param modelo datos a mostrar en la tabla */
+    public void setModeloTabla(DefaultTableModel modelo) {
+        jTableClientes.setModel(modelo);
+    }
+
+    /** @param mensaje texto a mostrar en un cuadro de diálogo */
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
+
+    /**
+     * Pide confirmación antes de eliminar.
+     *
+     * @return {@code true} si el usuario eligió "Sí"
+     */
+    public boolean confirmarEliminacion() {
+
+    int opcion = JOptionPane.showConfirmDialog(
+            this,
+            "¿Desea eliminar el cliente seleccionado?",
+            "Confirmar eliminación",
+            JOptionPane.YES_NO_OPTION
+    );
+
+    return opcion == JOptionPane.YES_OPTION;
+} 
+     
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        labelTitulo = new javax.swing.JLabel();
+        labelNombre = new javax.swing.JLabel();
+        labelApellido = new javax.swing.JLabel();
+        labelDNI = new javax.swing.JLabel();
+        labelTelefono = new javax.swing.JLabel();
+        labelEmail = new javax.swing.JLabel();
+        textFieldNombre = new javax.swing.JTextField();
+        textFieldApellido = new javax.swing.JTextField();
+        textFieldDNI = new javax.swing.JTextField();
+        textFieldTelefono = new javax.swing.JTextField();
+        textFieldEmail = new javax.swing.JTextField();
+        buttonModificar = new javax.swing.JButton();
+        buttonAgregar = new javax.swing.JButton();
+        buttonEliminar = new javax.swing.JButton();
+        buttonCancelar = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableClientes = new javax.swing.JTable();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Gestion de Clientes");
+        setResizable(false);
+
+        labelTitulo.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        labelTitulo.setText("GESTION DE CLIENTES");
+
+        labelNombre.setText("Nombre:");
+
+        labelApellido.setText("Apellido:");
+
+        labelDNI.setText("DNI:");
+
+        labelTelefono.setText("Teléfono:");
+
+        labelEmail.setText("Email:");
+
+        textFieldDNI.addActionListener(this::textFieldDNIActionPerformed);
+
+        buttonModificar.setText("MODIFICAR");
+
+        buttonAgregar.setText("AGREGAR");
+
+        buttonEliminar.setText("ELIMINAR");
+
+        buttonCancelar.setText("CANCELAR");
+
+        jTableClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Apellido", "DNI", "Teléfono", "Email"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(jTableClientes);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(labelNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                                    .addComponent(labelApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textFieldNombre)
+                                    .addComponent(textFieldApellido)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(labelEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelDNI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textFieldEmail)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(textFieldDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(buttonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 13, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(176, 176, 176)
+                .addComponent(labelTitulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(labelTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonAgregar)
+                    .addComponent(buttonModificar)
+                    .addComponent(buttonEliminar)
+                    .addComponent(buttonCancelar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                .addGap(41, 41, 41))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void textFieldDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldDNIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldDNIActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new ClienteView().setVisible(true));
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAgregar;
+    private javax.swing.JButton buttonCancelar;
+    private javax.swing.JButton buttonEliminar;
+    private javax.swing.JButton buttonModificar;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTableClientes;
+    private javax.swing.JLabel labelApellido;
+    private javax.swing.JLabel labelDNI;
+    private javax.swing.JLabel labelEmail;
+    private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel labelTelefono;
+    private javax.swing.JLabel labelTitulo;
+    private javax.swing.JTextField textFieldApellido;
+    private javax.swing.JTextField textFieldDNI;
+    private javax.swing.JTextField textFieldEmail;
+    private javax.swing.JTextField textFieldNombre;
+    private javax.swing.JTextField textFieldTelefono;
+    // End of variables declaration//GEN-END:variables
+}

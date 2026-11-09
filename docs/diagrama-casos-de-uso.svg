@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="760" viewBox="0 0 940 760" font-family="Arial, Helvetica, sans-serif">
+  <title>Diagrama de casos de uso - Tienda de Videojuegos</title>
+  <defs>
+    <marker id="flecha" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10" fill="none" stroke="#333" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <rect width="940" height="760" fill="#ffffff"/>
+
+  <!-- Limite del sistema -->
+  <rect x="250" y="30" width="660" height="710" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+  <text x="580" y="58" font-size="17" font-weight="bold" text-anchor="middle">Sistema Tienda de Videojuegos</text>
+
+  <!-- Actor -->
+  <g stroke="#333" stroke-width="2" fill="none">
+    <circle cx="110" cy="330" r="16" fill="#fff"/>
+    <line x1="110" y1="346" x2="110" y2="400"/>
+    <line x1="80" y1="365" x2="140" y2="365"/>
+    <line x1="110" y1="400" x2="85" y2="450"/>
+    <line x1="110" y1="400" x2="135" y2="450"/>
+  </g>
+  <text x="110" y="475" font-size="15" font-weight="bold" text-anchor="middle">Empleado</text>
+  <text x="110" y="493" font-size="12" text-anchor="middle">(usuario del sistema)</text>
+
+  <!-- Asociaciones actor - casos de uso -->
+  <g stroke="#555" stroke-width="1.2">
+    <line x1="142" y1="380" x2="320" y2="115"/>
+    <line x1="142" y1="380" x2="320" y2="165"/>
+    <line x1="142" y1="380" x2="320" y2="215"/>
+    <line x1="142" y1="380" x2="320" y2="265"/>
+    <line x1="142" y1="380" x2="320" y2="345"/>
+    <line x1="142" y1="380" x2="320" y2="395"/>
+    <line x1="142" y1="380" x2="320" y2="445"/>
+    <line x1="142" y1="380" x2="320" y2="495"/>
+    <line x1="142" y1="380" x2="320" y2="575"/>
+    <line x1="142" y1="380" x2="320" y2="625"/>
+    <line x1="142" y1="380" x2="320" y2="675"/>
+  </g>
+
+  <!-- Grupo Clientes -->
+  <text x="300" y="90" font-size="13" font-weight="bold" fill="#1f4e8c">CLIENTES</text>
+  <g fill="#eaf1fb" stroke="#1f4e8c" stroke-width="1.5">
+    <ellipse cx="470" cy="115" rx="150" ry="20"/>
+    <ellipse cx="470" cy="165" rx="150" ry="20"/>
+    <ellipse cx="470" cy="215" rx="150" ry="20"/>
+    <ellipse cx="470" cy="265" rx="150" ry="20"/>
+  </g>
+  <g font-size="14" text-anchor="middle">
+    <text x="470" y="120">Registrar cliente</text>
+    <text x="470" y="170">Consultar clientes</text>
+    <text x="470" y="220">Modificar cliente</text>
+    <text x="470" y="270">Eliminar cliente</text>
+  </g>
+
+  <!-- Grupo Videojuegos -->
+  <text x="300" y="320" font-size="13" font-weight="bold" fill="#2e7d32">VIDEOJUEGOS</text>
+  <g fill="#ebf6ec" stroke="#2e7d32" stroke-width="1.5">
+    <ellipse cx="470" cy="345" rx="150" ry="20"/>
+    <ellipse cx="470" cy="395" rx="150" ry="20"/>
+    <ellipse cx="470" cy="445" rx="150" ry="20"/>
+    <ellipse cx="470" cy="495" rx="150" ry="20"/>
+  </g>
+  <g font-size="14" text-anchor="middle">
+    <text x="470" y="350">Registrar videojuego</text>
+    <text x="470" y="400">Consultar videojuegos y disponibilidad</text>
+    <text x="470" y="450">Modificar videojuego</text>
+    <text x="470" y="500">Eliminar videojuego</text>
+  </g>
+
+  <!-- Grupo Alquileres -->
+  <text x="300" y="550" font-size="13" font-weight="bold" fill="#a35200">ALQUILERES</text>
+  <g fill="#fdf1e4" stroke="#a35200" stroke-width="1.5">
+    <ellipse cx="470" cy="575" rx="150" ry="20"/>
+    <ellipse cx="470" cy="625" rx="150" ry="20"/>
+    <ellipse cx="470" cy="675" rx="150" ry="20"/>
+  </g>
+  <g font-size="14" text-anchor="middle">
+    <text x="470" y="580">Registrar alquiler</text>
+    <text x="470" y="630">Consultar alquileres (activos / finalizados)</text>
+    <text x="470" y="680">Finalizar alquiler</text>
+  </g>
+
+  <!-- Casos de uso incluidos (reglas de negocio) -->
+  <g fill="#f3f3f3" stroke="#555" stroke-width="1.3">
+    <ellipse cx="770" cy="495" rx="120" ry="24"/>
+    <ellipse cx="770" cy="575" rx="120" ry="24"/>
+    <ellipse cx="770" cy="640" rx="120" ry="24"/>
+    <ellipse cx="770" cy="705" rx="120" ry="24"/>
+  </g>
+  <g font-size="12.5" text-anchor="middle">
+    <text x="770" y="491">Verificar que no tenga</text>
+    <text x="770" y="506">alquiler activo</text>
+    <text x="770" y="571">Verificar disponibilidad</text>
+    <text x="770" y="586">del videojuego</text>
+    <text x="770" y="636">Validar fechas</text>
+    <text x="770" y="651">(devolución ≥ alquiler)</text>
+    <text x="770" y="701">Verificar que no esté</text>
+    <text x="770" y="716">ya finalizado</text>
+  </g>
+
+  <!-- Relaciones include -->
+  <g stroke="#333" stroke-width="1.3" stroke-dasharray="6 4" fill="none" marker-end="url(#flecha)">
+    <line x1="620" y1="495" x2="648" y2="495"/>
+    <line x1="620" y1="575" x2="648" y2="575"/>
+    <line x1="610" y1="585" x2="655" y2="627"/>
+    <line x1="620" y1="680" x2="652" y2="697"/>
+  </g>
+  <g font-size="11" fill="#333" font-style="italic">
+    <text x="606" y="485">«include»</text>
+    <text x="606" y="565">«include»</text>
+    <text x="616" y="620">«include»</text>
+    <text x="602" y="707">«include»</text>
+  </g>
+</svg>
